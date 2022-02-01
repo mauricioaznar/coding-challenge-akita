@@ -20,7 +20,7 @@ describe('Correct values', () => {
 });
 
 describe('Incorrect values', () => {
-  const incorrectValues = ['$2dfads234.23'];
+  const incorrectValues = ['$2dfads234.23', '203.23'];
 
   incorrectValues.forEach((v) => {
     it(`fails when ${v}`, () => {

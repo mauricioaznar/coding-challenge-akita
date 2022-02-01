@@ -1,6 +1,6 @@
 export function getWholeNumber(numberString: string) {
-  const number = Number(numberString);
-  if (isNaN(number)) {
+  const regex = /^\d+$/i;
+  if (!regex.test(numberString)) {
     throw new Error('incorrect value');
   }
 
@@ -14,10 +14,6 @@ export function getWholeNumber(numberString: string) {
     const digitsString = Number(digitArraySlice.join('')).toString();
 
     if (digitsString === '0') continue;
-
-    const scale = (numberString.length - i) / 3;
-
-    const humanReadableScale = `${getHumanReadableScale(scale)}`;
 
     let humanReadableString = '';
 
@@ -51,6 +47,10 @@ export function getWholeNumber(numberString: string) {
         humanReadableString = getSimpleUnits(digitsString[0]);
       }
     }
+
+    const scale = (numberString.length - i) / 3;
+
+    const humanReadableScale = `${getHumanReadableScale(scale)}`;
 
     wholeNumberString = `${humanReadableString} ${humanReadableScale} ${wholeNumberString}`;
   }
@@ -107,6 +107,8 @@ function getHumanReadableScale(scale: number) {
   const map = {
     0: '',
     1: 'thousand',
+    2: 'million',
+    3: 'billion',
   };
 
   return map[scale];
