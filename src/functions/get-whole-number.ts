@@ -11,22 +11,45 @@ export function getWholeNumber(numberString: string) {
       .split('')
       .slice(i - 3 >= 0 ? i - 3 : 0, i);
 
-    const threeDigitString = Number(threeDigitArray.join('')).toString();
+    const digitsString = Number(threeDigitArray.join('')).toString();
 
-    if (threeDigitString === '0') continue;
+    if (digitsString === '0') continue;
 
     const scale = Math.floor(i % 3);
 
-    const humanReadableScale = getHumanReadableScale(scale);
+    const humanReadableScale = `${getHumanReadableScale(scale)}`;
 
     let humanReadableString = '';
 
-    if (threeDigitString.length === 3) {
-      humanReadableString = getHumanReadableThirdDigit(threeDigitString[0]);
-    } else if (threeDigitString.length === 2) {
-      //
-    } else {
-      humanReadableString = getHumanReadableThirdDigit(threeDigitString[0]);
+    if (digitsString.length === 3) {
+      humanReadableString = `${getSimpleUnits(digitsString[0])} hundred`;
+    }
+
+    if (digitsString.length === 2 || digitsString.length === 3) {
+      const digits = Number(
+        digitsString.slice(digitsString.length - 2, digitsString.length),
+      );
+
+      if (digits >= 10 && digits < 20) {
+        humanReadableString = `${humanReadableString} ${getTenUnits(
+          digitsString.slice(digitsString.length - 2, digitsString.length),
+        )}`;
+      } else if (digits < 10 && digits >= 1) {
+        humanReadableString = `${humanReadableString} ${getSimpleUnits(
+          digitsString[2],
+        )}`;
+      } else if (digits >= 20) {
+        humanReadableString = `${humanReadableString} ${getTwoDigits(
+          digitsString[1],
+        )} ${getSimpleUnits(digitsString[2])}`;
+      }
+    }
+
+    if (digitsString.length === 1) {
+      const digits = Number(digitsString[0]);
+      if (digits < 10 || digits >= 20) {
+        humanReadableString = getSimpleUnits(digitsString[0]);
+      }
     }
 
     wholeNumberString = `${humanReadableString} ${humanReadableScale} ${wholeNumberString}`;
@@ -35,7 +58,7 @@ export function getWholeNumber(numberString: string) {
   return wholeNumberString.trim();
 }
 
-function getHumanReadableThirdDigit(digit: string) {
+function getSimpleUnits(digit: string) {
   const map = {
     '1': 'one',
     '2': 'two',
@@ -46,6 +69,36 @@ function getHumanReadableThirdDigit(digit: string) {
     '7': 'seven',
     '8': 'eight',
     '9': 'nine',
+  };
+  return map[digit];
+}
+
+function getTenUnits(digit: string) {
+  const map = {
+    '10': 'ten',
+    '11': 'eleven',
+    '12': 'twelve',
+    '13': 'thirteen',
+    '14': 'fourteen',
+    '15': 'fifteen',
+    '16': 'sixteen',
+    '17': 'seventeen',
+    '18': 'eighteen',
+    '19': 'nineteen',
+  };
+  return map[digit];
+}
+
+function getTwoDigits(digit: string) {
+  const map = {
+    '2': 'twenty',
+    '3': 'thirty',
+    '4': 'forty',
+    '5': 'fifty',
+    '6': 'sixty',
+    '7': 'seventy',
+    '8': 'eighty',
+    '9': 'ninety',
   };
   return map[digit];
 }

@@ -2,9 +2,10 @@ import { getWholeNumber } from './get-whole-number';
 
 describe('Correct values', () => {
   const mappedValues = {
-    // '200': 'two hundred',
+    '200': 'two hundred',
     '2000': 'two thousand',
-    // '101': 'one hundred one',
+    '101': 'one hundred one',
+    '111': 'one hundred eleven',
   };
 
   for (const wholeNumberString in mappedValues) {
