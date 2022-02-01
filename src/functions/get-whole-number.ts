@@ -37,7 +37,7 @@ export function getWholeNumber(numberString: string) {
       } else if (digits >= 20) {
         humanReadableString = `${humanReadableString} ${getTwoDigits(
           digitsString[digitsString.length - 2],
-        )} ${getSimpleUnits(digitsString[digitsString.length - 1])}`;
+        )}-${getSimpleUnits(digitsString[digitsString.length - 1])}`;
       }
     }
 
