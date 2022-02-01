@@ -6,16 +6,16 @@ export function getWholeNumber(numberString: string) {
 
   let wholeNumberString = '';
 
-  for (let i = numberString.length; i >= 0; i = i - 3) {
-    const threeDigitArray = numberString
-      .split('')
-      .slice(i - 3 >= 0 ? i - 3 : 0, i);
+  const digitArray = numberString.split('');
 
-    const digitsString = Number(threeDigitArray.join('')).toString();
+  for (let i = numberString.length; i >= 0; i = i - 3) {
+    const digitArraySlice = digitArray.slice(i - 3 >= 0 ? i - 3 : 0, i);
+
+    const digitsString = Number(digitArraySlice.join('')).toString();
 
     if (digitsString === '0') continue;
 
-    const scale = Math.floor(i % 3);
+    const scale = (numberString.length - i) / 3;
 
     const humanReadableScale = `${getHumanReadableScale(scale)}`;
 
@@ -36,12 +36,12 @@ export function getWholeNumber(numberString: string) {
         )}`;
       } else if (digits < 10 && digits >= 1) {
         humanReadableString = `${humanReadableString} ${getSimpleUnits(
-          digitsString[2],
+          digitsString[digitsString.length - 1],
         )}`;
       } else if (digits >= 20) {
         humanReadableString = `${humanReadableString} ${getTwoDigits(
-          digitsString[1],
-        )} ${getSimpleUnits(digitsString[2])}`;
+          digitsString[digitsString.length - 2],
+        )} ${getSimpleUnits(digitsString[digitsString.length - 1])}`;
       }
     }
 
