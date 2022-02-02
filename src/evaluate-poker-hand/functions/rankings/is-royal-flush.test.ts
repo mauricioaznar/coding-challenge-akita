@@ -25,7 +25,7 @@ it('returns royal flush', () => {
     },
   ];
 
-  expect(isRoyalFlush(royalFlush)).toBe('royal flush');
+  expect(isRoyalFlush(royalFlush)).toBe(true);
 });
 
 it('doesnt return royal flush when suits are not the same', () => {
@@ -52,7 +52,7 @@ it('doesnt return royal flush when suits are not the same', () => {
     },
   ];
 
-  expect(isRoyalFlush(royalFlush)).not.toBe('royal flush');
+  expect(isRoyalFlush(royalFlush)).toBe(false);
 });
 
 it('doesnt return royal flush when rank is not highest rank (a, 10, j, q or k)', () => {
@@ -79,5 +79,5 @@ it('doesnt return royal flush when rank is not highest rank (a, 10, j, q or k)',
     },
   ];
 
-  expect(isRoyalFlush(royalFlush)).not.toBe('royal flush');
+  expect(isRoyalFlush(royalFlush)).toBe(false);
 });

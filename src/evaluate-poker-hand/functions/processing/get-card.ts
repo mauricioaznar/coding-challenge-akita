@@ -1,6 +1,6 @@
-import { Card } from '../types/card';
-import { Rank } from '../types/rank';
-import { Suit } from '../types/suit';
+import { Card } from '../../types/card';
+import { Rank } from '../../types/rank';
+import { Suit } from '../../types/suit';
 
 export function getCard(input: string): Card {
   const rank = (

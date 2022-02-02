@@ -1,6 +1,6 @@
-import { getCard } from './get-card';
-import { suits } from '../constants/suits';
-import { ranks } from '../constants/ranks';
+import { getCard } from '../processing/get-card';
+import { suits } from '../../constants/suits';
+import { ranks } from '../../constants/ranks';
 
 export function isHandValid(hand: string): boolean {
   const invalidCards = [];

@@ -1,6 +1,7 @@
 import { Card } from '../../types/card';
+import { areSuitsEqual } from './functions/are-suits-equal';
 
-export function isRoyalFlush(cards: Card[]): 'royal flush' | null {
+export function isRoyalFlush(cards: Card[]): boolean {
   const isRoyalRank = cards.every((c) => {
     const rank = c.rank;
     return (
@@ -11,16 +12,5 @@ export function isRoyalFlush(cards: Card[]): 'royal flush' | null {
       rank === 'k'
     );
   });
-
-  const set = new Set();
-  cards.forEach((c) => {
-    set.add(c.suit);
-  });
-  const areAllSameSuit = set.size === 1;
-
-  if (!isRoyalRank || !areAllSameSuit) {
-    return null;
-  }
-
-  return 'royal flush';
+  return !(!isRoyalRank || !areSuitsEqual(cards));
 }

@@ -14,8 +14,8 @@
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:human-readable": "jest --watch ./src/convert-number-to-human-readable",
-    "test:poker": "jest --watch ./src/evaluate-poker-hand",
+    "test:excercise-1": "jest --watch ./src/convert-number-to-human-readable",
+    "test:excercise-2": "jest --watch ./src/evaluate-poker-hand",
     "test:sorts": "jest --watch src/sorting-methods"
   },
   "devDependencies": {

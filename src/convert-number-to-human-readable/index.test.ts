@@ -1,4 +1,4 @@
-import { convert } from './main';
+import { convert } from './index';
 
 describe('Incorrect values', () => {
   const incorrectValues = [
