@@ -2,6 +2,6 @@ import { Rank } from './rank';
 import { Suit } from './suit';
 
 export interface Card {
-  rank: Rank;
-  suit: Suit;
+  rank: keyof Rank;
+  suit: keyof Suit;
 }

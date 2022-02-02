@@ -1,1 +1,6 @@
-export type Suit = 's' | 'c' | 'd' | 'h';
+export type Suit = {
+  s: string;
+  c: string;
+  d: string;
+  h: string;
+};

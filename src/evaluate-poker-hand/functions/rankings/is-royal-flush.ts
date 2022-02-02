@@ -1,8 +1,6 @@
 import { Card } from '../../types/card';
 
-export function isRoyalFlush(
-  cards: Card[],
-): 'royal flush' | 'straight flush' | null {
+export function isRoyalFlush(cards: Card[]): 'royal flush' | null {
   const isRoyalRank = cards.every((c) => {
     const rank = c.rank;
     return (
@@ -19,9 +17,10 @@ export function isRoyalFlush(
     set.add(c.suit);
   });
   const areAllSameSuit = set.size === 1;
-  if (isRoyalRank && areAllSameSuit) {
-    return 'royal flush';
+
+  if (!isRoyalRank || !areAllSameSuit) {
+    return null;
   }
 
-  return null;
+  return 'royal flush';
 }
