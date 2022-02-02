@@ -108,3 +108,57 @@ it('returns null when cards have the same suit and are rank not consecutive (usi
 
   expect(isStraightFlush(cards)).toBe(null);
 });
+
+it('returns null when cards have the same suit and are rank not consecutive (using a before 2)', () => {
+  const cards: Card[] = [
+    {
+      rank: '2',
+      suit: 's',
+    },
+    {
+      rank: '3',
+      suit: 's',
+    },
+    {
+      rank: '4',
+      suit: 's',
+    },
+    {
+      rank: '6',
+      suit: 's',
+    },
+    {
+      rank: 'a',
+      suit: 's',
+    },
+  ];
+
+  expect(isStraightFlush(cards)).toBe(null);
+});
+
+it('returns null when cards dont have the same suit', () => {
+  const cards: Card[] = [
+    {
+      rank: '2',
+      suit: 's',
+    },
+    {
+      rank: '3',
+      suit: 's',
+    },
+    {
+      rank: '4',
+      suit: 's',
+    },
+    {
+      rank: '5',
+      suit: 's',
+    },
+    {
+      rank: '6',
+      suit: 'd',
+    },
+  ];
+
+  expect(isStraightFlush(cards)).toBe(null);
+});
