@@ -1,3 +1,3 @@
-import { convert } from './main';
+import { convert } from './convert-number-to-human-readable/main';
 
 console.log(convert('2004.45'));
