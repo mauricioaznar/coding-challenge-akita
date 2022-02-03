@@ -1,6 +1,10 @@
 export function bubbleSort(numbers: number[]): number[] {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 0; j < numbers.length - i - 1; j++) {
+  const len = numbers.length;
+
+  for (let i = 0; i < len; i++) {
+    const maxJLength = len - i - 1;
+
+    for (let j = 0; j < maxJLength; j++) {
       if (numbers[j] > numbers[j + 1]) {
         const temp = numbers[j];
         numbers[j] = numbers[j + 1];
