@@ -1,6 +1,8 @@
 import { getCard } from '../processing/get-card';
 import { suits } from '../../constants/suits';
 import { ranks } from '../../constants/ranks';
+import { Rank } from '../../types/rank';
+import { Suit } from '../../types/suit';
 
 export function isHandValid(hand: string): boolean {
   const invalidCards = [];
@@ -17,10 +19,10 @@ export function isHandValid(hand: string): boolean {
   return invalidCards.length === 0;
 }
 
-function isRankValid(rank: string): boolean {
-  return ranks[rank.toLowerCase()] !== undefined;
+function isRankValid(rank: keyof Rank): boolean {
+  return ranks[rank] !== undefined;
 }
 
-function isSuitValid(suit: string): boolean {
-  return suits[suit.toLowerCase()] !== undefined;
+function isSuitValid(suit: keyof Suit): boolean {
+  return suits[suit] !== undefined;
 }

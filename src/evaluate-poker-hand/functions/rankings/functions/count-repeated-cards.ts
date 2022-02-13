@@ -1,13 +1,13 @@
 import { Card } from '../../../types/card';
 
-export function countRepeatedCards(
-  cards: Card[],
-  cardProperty: keyof Card,
+export function countRepeatedCards<T extends Card, K extends keyof Card>(
+  cards: T[],
+  cardProperty: K,
 ): {
-  [key in Card[keyof Card]]?: number;
+  [key in T[K]]?: number;
 } {
   const counts: {
-    [key in Card[keyof Card]]?: number;
+    [key in T[K]]?: number;
   } = {};
 
   cards.forEach((c) => {
