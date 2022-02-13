@@ -1,5 +1,4 @@
 import { Card } from '../../types/card';
-import { countRepeatedCards } from './functions/count-repeated-cards';
 import { isFullHouse } from './is-full-house';
 
 it('returns true when cards have three and two repeated ranks', () => {

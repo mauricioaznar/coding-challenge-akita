@@ -1,6 +1,5 @@
-import { Card } from '../../types/card';
-import { isThreeOfAKind } from './is-three-of-a-kind';
-import { isTwoPair } from './is-two-pair';
+import {Card} from '../../types/card';
+import {isTwoPair} from './is-two-pair';
 
 it('returns true when there are two pairs of the same rank', () => {
   const cards: Card[] = [

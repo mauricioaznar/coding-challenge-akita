@@ -1,5 +1,4 @@
-import { convert } from './convert-number-to-human-readable';
-import { evaluatePokerHand } from './evaluate-poker-hand';
+import {evaluatePokerHand} from './evaluate-poker-hand';
 
 // console.log(convert('2004.45'));
 

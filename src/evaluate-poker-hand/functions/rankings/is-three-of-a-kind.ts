@@ -1,5 +1,5 @@
-import { Card } from '../../types/card';
-import { countRepeatedCards } from './functions/count-repeated-cards';
+import {Card} from '../../types/card';
+import {countRepeatedCards} from './functions/count-repeated-cards';
 
 export function isThreeOfAKind(cards: Card[]): boolean {
   let threeOfAKindCount = 0;
