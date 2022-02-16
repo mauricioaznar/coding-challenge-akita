@@ -32,7 +32,7 @@ describe('Correct values', () => {
 });
 
 describe('Expected values', () => {
-  const expectedValues = {
+  const expectedValues: { [k: string]: string } = {
     '100.199': 'one hundred and 199/1000 dollars',
     '2105489.09':
       'two million one hundred five thousand four hundred eighty-nine and 09/100 dollars',

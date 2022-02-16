@@ -13,7 +13,7 @@ describe('Incorrect values', () => {
 });
 
 describe('Expected values', () => {
-  const expectedMap = {
+  const expectedMap: { [k: string]: string } = {
     '200': 'two hundred',
     '2000': 'two thousand',
     '101': 'one hundred one',

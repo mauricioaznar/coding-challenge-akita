@@ -59,7 +59,7 @@ export function getWholeNumber(numberString: string) {
 }
 
 function getSimpleUnits(digit: string) {
-  const map = {
+  const map: { [k: string]: string } = {
     '1': 'one',
     '2': 'two',
     '3': 'three',
@@ -74,7 +74,7 @@ function getSimpleUnits(digit: string) {
 }
 
 function getTenUnits(digit: string) {
-  const map = {
+  const map: { [k: string]: string } = {
     '10': 'ten',
     '11': 'eleven',
     '12': 'twelve',
@@ -90,7 +90,7 @@ function getTenUnits(digit: string) {
 }
 
 function getTwoDigits(digit: string) {
-  const map = {
+  const map: { [k: string]: string } = {
     '2': 'twenty',
     '3': 'thirty',
     '4': 'forty',
@@ -104,7 +104,7 @@ function getTwoDigits(digit: string) {
 }
 
 function getHumanReadableScale(scale: number) {
-  const map = {
+  const map: { [k: number]: string } = {
     0: '',
     1: 'thousand',
     2: 'million',
