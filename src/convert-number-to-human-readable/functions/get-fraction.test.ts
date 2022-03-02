@@ -12,7 +12,7 @@ describe('incorrect values', () => {
 });
 
 describe('correct values', () => {
-  const correctValues = {
+  const correctValues: { [k: string]: string } = {
     '100': '100/1000',
     '50': '50/100',
     '1000': '1000/10000',

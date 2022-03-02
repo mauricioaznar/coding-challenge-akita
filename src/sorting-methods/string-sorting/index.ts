@@ -1,45 +1,31 @@
-export function stringSort(array: string[]): string[] {
+import { isALessThanB } from './functions/is-a-less-than-b';
 
-  for(let i = 0; i < array.length - 1; i++){
-    const splitedI = array[i].split('');
+export function stringSort(strings: string[]): string[] {
+  const sortedStrings: string[] = [];
 
-    for(let j= i + 1; j < array.length; j++){
-      const splitedJ = array[j].split('');
+  for (let i = 0; i < strings.length; i++) {
+    const currString = strings[i];
+    let isPositionFound = false;
 
-      if(splitedI > splitedJ){
-        [array[i], array[j]] = [array[j], array[i]];
+    let j = 0;
+    while (isPositionFound === false && j < sortedStrings.length) {
+      const currSortedString = sortedStrings[j];
+      const isLess = isALessThanB(currString, currSortedString);
+      if (isLess) {
+        isPositionFound = true;
+      } else {
+        j++;
       }
     }
+
+    sortedStrings.splice(j, 0, currString);
+
+    // if (isPositionFound === false) {
+    //   sortedStrings.push(currString);
+    // } else {
+    //   sortedStrings.splice(j, 0, currString);
+    // }
   }
 
-  return array;
+  return sortedStrings;
 }
-
-
-/*
-  strings.forEach(item => {
-    let inserted = false
-    for (let i = 0; i < arr.length; i++) {
-
-
-
-      const currArrItem = arr[i]
-      if (item < currArrItem && currArrItem !== item) {
-        inserted = true
-        arr.unshift(currArrItem)
-        break
-      }
-
-
-    }
-    console.log(item)
-
-    if (inserted === false) {
-      arr.push(item)
-    }
-
-  })
-
-
-  console.log(arr)
- */
